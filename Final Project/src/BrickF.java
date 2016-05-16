@@ -44,7 +44,7 @@ public class BrickF
 
 	public void draw(Graphics g)
 	{
-		g.setColor(Color.RED);
+		g.setColor(Color.CYAN);
 		g.fillRect(x-WIDTH/2, y-HEIGHT/2, WIDTH-1, HEIGHT-1);
 	}
 }

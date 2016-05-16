@@ -14,11 +14,11 @@ public class FallCommands extends JComponent implements KeyListener, Runnable
  		setPreferredSize(new Dimension(engine.WIDTH, engine.HEIGHT));
  		
  		addKeyListener(this);
- 		Thread run = new Thread(this);
+ 		Thread run = new Thread(this);    //allows multiple things top run
  		run.start();
 	}
 
-	public void run()
+	public void run()     //runs movement
 	{
 		while(true)
 		{
@@ -46,9 +46,13 @@ public class FallCommands extends JComponent implements KeyListener, Runnable
 	public void update()
 	{
 		if(leftPressed)
+			{
 			engine.moveLeft();
+			}
 		if(rightPressed)
+			{
 			engine.moveRight();
+			}
 		engine.update();
 	}
 

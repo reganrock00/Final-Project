@@ -7,7 +7,7 @@ public class PlayFallDown extends JFrame
 	{
 		getContentPane().setLayout(new FlowLayout());
 		add(new FallCommands());
-		pack();
+		pack();            // optimizes size
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 	}

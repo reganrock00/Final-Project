@@ -29,7 +29,7 @@ public class FallDownEngine
 		    {
 			if(i != hole)
 			    {
-				bricks.add(new BrickF(i*BrickF.WIDTH+BrickF.WIDTH/2, HEIGHT+BrickF.HEIGHT));
+				bricks.add(new BrickF(i*BrickF.WIDTH + BrickF.WIDTH/2, HEIGHT + BrickF.HEIGHT));
 			    }
 		    }
 		points++;
@@ -128,4 +128,14 @@ public class FallDownEngine
 		g.setColor(Color.BLUE);
 		g.drawString("Points: "+points, 10, 20);
 	}
+	public void delay()
+		{
+        try
+				{
+				Thread.sleep(10);
+				} catch (InterruptedException e)
+				{
+				e.printStackTrace();
+				}
+		}
 }
