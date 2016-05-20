@@ -5,7 +5,8 @@ import java.awt.event.*;
 public class FallCommands extends JComponent implements KeyListener, Runnable
 {
 	private FallDownEngine engine;
-	private boolean leftPressed, rightPressed;
+    public boolean leftPressed, rightPressed;
+    static boolean spacePressed;
 
 	public FallCommands()
 	{
@@ -14,7 +15,7 @@ public class FallCommands extends JComponent implements KeyListener, Runnable
  		setPreferredSize(new Dimension(engine.WIDTH, engine.HEIGHT));
  		
  		addKeyListener(this);
- 		Thread run = new Thread(this);    //allows multiple things top run
+ 		Thread run = new Thread(this);    //allows multiple things to run
  		run.start();
 	}
 
@@ -24,12 +25,12 @@ public class FallCommands extends JComponent implements KeyListener, Runnable
 		{
 			try
 			{
-				Thread.sleep(20);
+				Thread.sleep(20);   //temporarily ceases execution, also throws interrupted execution
 			}
 			catch(Exception ex)
 			{
 			}
-			requestFocus();
+			requestFocus(); //focuses on the input
 			update();
 			repaint();
 		}
@@ -62,17 +63,25 @@ public class FallCommands extends JComponent implements KeyListener, Runnable
 			{
 			leftPressed = true;
 			}
+		if(ke.getKeyCode() == KeyEvent.VK_SPACE)
+			{
+			spacePressed = true;
+			}
 		else if(ke.getKeyCode() == KeyEvent.VK_RIGHT)
 			{
 			rightPressed = true;
 			}
 	}
-
+	
 	public void keyReleased(KeyEvent ke)
 	{
 		if(ke.getKeyCode() == KeyEvent.VK_LEFT)
 			{
 			leftPressed = false;
+			}
+		if(ke.getKeyCode() == KeyEvent.VK_SPACE)
+			{
+			spacePressed = false;
 			}
 		else if(ke.getKeyCode() == KeyEvent.VK_RIGHT)
 			{

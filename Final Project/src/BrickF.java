@@ -32,8 +32,9 @@ public class BrickF
 	{
 		BallF ret = b;
 		while(intersects(ret))
+			{
 			ret = ret.move(0, -1);
-
+			}
 		return ret;
 	}
 
